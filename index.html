@@ -1,0 +1,88 @@
+<title>Docker Page</title>
+
+<script>
+
+function lw(){
+
+var xhr = new XMLHttpRequest();
+
+var x = document.getElementById("in1").value
+var link="http://192.168.1.10/cgi-bin/cgi.py?x="+x
+xhr.open("GET", link, true);
+xhr.send();
+
+//output from url
+xhr.onload = function (){
+var output = xhr.responseText;
+//document.getElementById("d1").innerHTML = output;
+
+var xpre = document.getElementById("pre")
+xpre.innerHTML = output
+}	
+}
+
+//not working
+function clear(){
+document.getElementById("in1").innerText = "";
+}
+</script>
+
+<style>
+
+body{
+background-color: lightblue;
+text-align: center;
+}
+
+div#d1{
+background-color: ;
+text-align: center;
+font-size: 25px;
+}
+
+div#d2{
+background-color: white;
+text-align: center;
+border: 5px solid black;
+font-size: 15px;
+}
+
+div#d3{
+text-align: center;
+font-size: 25px;
+}
+
+.class1{
+font-size: 25px;
+}
+
+.b1{
+font-size: 20px;
+}
+
+</style>
+
+
+<body>
+
+<img src="docker1.gif" height="50%"/>
+<br>
+<br>
+<div id="d3">
+<b>Enter your command: </b><input type="text" id="in1" class="class1">
+</div>
+<br>
+<button onclick="lw()" class="b1">click here</button>
+<button onclick="clear()" class="b1">clear</button>
+<br>
+<br>
+
+<div id="d1"><b>OUTPUT:</b></div>
+<br>
+<div id="d2">
+<pre id="pre">
+here will be the output........
+</pre>
+</div>
+
+</body>
